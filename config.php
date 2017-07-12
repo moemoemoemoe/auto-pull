@@ -4,4 +4,3 @@ define("REMOTE_REPOSITORY", "git@github.com:username/repository.git"); // The SS
 define("DIR", "/var/www/vhosts/repository/");                          // The path to your repostiroy; this must begin with a forward slash (/)
 define("BRANCH", "refs/heads/master");                                 // The branch route
 define("LOGFILE", "deploy.log");                                       // The name of the file you want to log to.
-define("GIT", "/usr/bin/git");                                         // The path to the git executable
