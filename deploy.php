@@ -21,27 +21,6 @@ date_default_timezone_set("UTC");
 fputs($file, date("d-m-Y (H:i:s)", $time) . "\n");
 
 // function to forbid access
-function forbid($file, $reason) {
-    // explain why
-    if ($reason) fputs($file, "=== ERROR: " . $reason . " ===\n");
-    fputs($file, "*** ACCESS DENIED ***" . "\n\n\n");
-    fclose($file);
-
-    // forbid
-    header("HTTP/1.0 403 Forbidden");
-    exit;
-}
-
-// function to return OK
-function ok() {
-    ob_start();
-    header("HTTP/1.1 200 OK");
-    header("Connection: close");
-    header("Content-Length: " . ob_get_length());
-    ob_end_flush();
-    ob_flush();
-    flush();
-}
 
 // Check for a GitHub signature
 if (!empty(TOKEN) && isset($_SERVER["HTTP_X_HUB_SIGNATURE"]) && $token !== hash_hmac($algo, $content, TOKEN)) {
